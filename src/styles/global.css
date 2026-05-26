@@ -1,1 +1,53 @@
 @import "tailwindcss";
+
+@theme {
+  /* Brand colors — extracted from logo */
+  --color-brand-50:  #E8F4F7;
+  --color-brand-100: #C6E3EA;
+  --color-brand-200: #8ECAD6;
+  --color-brand-300: #56AEBF;
+  --color-brand-400: #2993A8;
+  --color-brand-500: #006F87;
+  --color-brand-600: #005670;
+  --color-brand-700: #004457;
+  --color-brand-800: #003C4B;  /* logo primary */
+  --color-brand-900: #002D38;
+  --color-brand-950: #001E26;
+
+  /* Accent — verde lima del logo */
+  --color-accent-300: #CEDF8A;
+  --color-accent-400: #C4DC7A;
+  --color-accent-500: #B4D25A;  /* logo accent */
+  --color-accent-600: #96B83C;
+  --color-accent-700: #7A9A2E;
+
+  /* Neutrals */
+  --color-neutral-50:  #F8F9FA;
+  --color-neutral-100: #F1F3F4;
+  --color-neutral-200: #E2E5E8;
+  --color-neutral-300: #C3C3C3;  /* logo gray */
+  --color-neutral-400: #9CA3AF;
+  --color-neutral-500: #6B7280;
+  --color-neutral-600: #4B5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1F2937;
+  --color-neutral-900: #111827;
+
+  /* Typography */
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+    color: var(--color-neutral-800);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-brand-900);
+    line-height: 1.2;
+  }
+}

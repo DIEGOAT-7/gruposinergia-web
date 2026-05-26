@@ -1,0 +1,95 @@
+---
+const navLinks = [
+  { label: 'Inicio',         href: '/' },
+  { label: 'Quiénes Somos',  href: '/quienes-somos' },
+  { label: 'Servicios',      href: '/servicios' },
+  { label: 'Blog',           href: '/blog' },
+  { label: 'Preguntas',      href: '/preguntas-frecuentes' },
+]
+
+const currentPath = Astro.url.pathname
+---
+
+<header class="bg-brand-800 shadow-md sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+
+      <!-- Logo / Wordmark -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="flex flex-col leading-tight">
+          <span class="text-white font-heading font-bold text-lg tracking-wide group-hover:text-accent-500 transition-colors">
+            Grupo Sinergia
+          </span>
+          <span class="text-neutral-300 text-xs tracking-widest uppercase">
+            Consultores
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-1">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class:list={[
+              'px-4 py-2 rounded text-sm font-medium transition-colors',
+              currentPath === link.href
+                ? 'text-accent-500 bg-brand-700'
+                : 'text-neutral-200 hover:text-white hover:bg-brand-700'
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+
+        <a
+          href="/contacto"
+          class="ml-4 px-5 py-2 rounded bg-accent-500 text-brand-900 text-sm font-semibold hover:bg-accent-400 transition-colors"
+        >
+          Contáctenos
+        </a>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button
+        id="menu-btn"
+        class="md:hidden text-neutral-200 hover:text-white p-2"
+        aria-label="Abrir menú"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile nav -->
+    <nav id="mobile-menu" class="hidden md:hidden pb-4 border-t border-brand-700 mt-1 pt-3">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class:list={[
+            'block px-3 py-2 rounded text-sm font-medium transition-colors mb-1',
+            currentPath === link.href
+              ? 'text-accent-500 bg-brand-700'
+              : 'text-neutral-200 hover:text-white hover:bg-brand-700'
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="/contacto"
+        class="block mt-2 px-3 py-2 rounded bg-accent-500 text-brand-900 text-sm font-semibold text-center"
+      >
+        Contáctenos
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('menu-btn')
+  const menu = document.getElementById('mobile-menu')
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'))
+</script>
