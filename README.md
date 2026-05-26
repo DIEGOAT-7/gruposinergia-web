@@ -1,43 +1,89 @@
-# Astro Starter Kit: Minimal
+# Grupo Sinergia Consultores — Sitio Web
 
-```sh
-pnpm create astro@latest -- --template minimal
+Sitio web corporativo para **Grupo Sinergia Consultores S.A.S.**, firma especializada en Propiedad Horizontal. Desarrollado por [La Sucursal del Cielo Agency](mailto:diegoortizare@gmail.com).
+
+## Stack
+
+- **Framework:** Astro 6 (SSG — salida 100% estática)
+- **CSS:** Tailwind CSS v4
+- **Node:** v22 (via nvm)
+- **Package manager:** pnpm
+
+## Comandos
+
+Todos los comandos se corren desde este directorio (`web/`):
+
+```bash
+pnpm dev --host --port 4322   # servidor local → http://100.67.113.83:4322
+pnpm build                    # build de producción → dist/
+pnpm preview                  # previsualizar el build
+pnpm astro check              # type-check de archivos .astro
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Páginas
 
-## 🚀 Project Structure
+| Ruta | Archivo | Estado |
+|---|---|---|
+| `/` | `src/pages/index.astro` | ✅ Listo |
+| `/quienes-somos` | `src/pages/quienes-somos.astro` | ✅ Listo |
+| `/servicios` | `src/pages/servicios.astro` | ✅ Listo |
+| `/servicios/recibo-zonas-comunes` | `src/pages/servicios/recibo-zonas-comunes.astro` | ✅ Listo |
+| `/contacto` | `src/pages/contacto.astro` | ✅ Listo |
+| `/preguntas-frecuentes` | `src/pages/preguntas-frecuentes.astro` | 🔲 Pendiente |
+| `/blog` | `src/pages/blog/index.astro` | 🔲 Pendiente |
 
-Inside of your Astro project, you'll see the following folders and files:
+## ⚠️ Pendientes antes de lanzar
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+### 1. Formspree — Formulario de contacto
+El formulario en `/contacto` necesita un endpoint real para enviar los mensajes.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+**Pasos:**
+1. Crear cuenta en [formspree.io](https://formspree.io) con el correo del cliente
+2. Crear un nuevo form ("Contacto Grupo Sinergia")
+3. Copiar el endpoint generado (formato: `https://formspree.io/f/xxxxxxxx`)
+4. Reemplazar en `src/pages/contacto.astro` línea 8:
+   ```js
+   const FORM_ENDPOINT = 'https://formspree.io/f/XXXXXXXX'
+   ```
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### 2. Calendly — Agendamiento en línea
+El embed de Calendly en `/contacto` necesita el enlace real del calendario.
 
-Any static assets, like images, can be placed in the `public/` directory.
+**Pasos:**
+1. Crear cuenta en [calendly.com](https://calendly.com) con el correo del cliente
+2. Conectar Google Calendar o Outlook
+3. Crear evento "Consulta inicial" (30–45 min)
+4. Copiar el enlace del evento (formato: `https://calendly.com/usuario/consulta`)
+5. Reemplazar en `src/pages/contacto.astro` línea ~215:
+   ```html
+   data-url="https://calendly.com/USUARIO-PENDIENTE"
+   ```
 
-## 🧞 Commands
+### 3. WhatsApp — Número de contacto
+El botón de WhatsApp usa un número placeholder en todo el sitio.
 
-All commands are run from the root of the project, from a terminal:
+**Pasos:**
+1. Confirmar el número de WhatsApp del cliente (formato: `57` + número sin espacios)
+2. Reemplazar en `src/pages/contacto.astro` línea 12:
+   ```js
+   const WA_NUMBER = '57XXXXXXXXXX'
+   ```
+3. Actualizar también los `href="https://wa.me/57"` en:
+   - `src/pages/index.astro`
+   - `src/pages/servicios/recibo-zonas-comunes.astro`
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+### 4. Logo SVG
+Actualmente el header usa texto como wordmark. Pendiente extraer el logo a SVG para usarlo como imagen.
 
-## 👀 Want to learn more?
+- Fuente: `../logos_gs/logo_GrupoSinergia.pdf`
+- Reemplazar el wordmark en `src/components/Header.astro`
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### 5. Dominio y despliegue en Hostinger
+- Registrar dominio (`gruposinergia.com.co` o `gruposinergiaconsultores.com`)
+- Subir el contenido de `dist/` vía FTP o Git deployment en Hostinger
+- Configurar SSL
+
+### 6. Correos corporativos
+Reemplazar los correos Yahoo actuales (`sinergiaci@yahoo.com`) por correos con dominio propio una vez registrado.
+- Actualizar en `src/components/Footer.astro`
+- Actualizar en `src/pages/contacto.astro`
