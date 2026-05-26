@@ -1,0 +1,196 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const categories = [
+  {
+    title: 'Propiedad Horizontal',
+    faqs: [
+      {
+        q: '¿Qué es el régimen de Propiedad Horizontal?',
+        a: 'Es el sistema jurídico regulado por la Ley 675 de 2001 que organiza la convivencia y administración de inmuebles divididos en unidades privadas y zonas comunes, como conjuntos residenciales, edificios de apartamentos y centros comerciales. Establece derechos y obligaciones para copropietarios, administradores y consejos de administración.',
+      },
+      {
+        q: '¿Quiénes están obligados a cumplir la Ley 675 de 2001?',
+        a: 'Todos los inmuebles sometidos al régimen de propiedad horizontal: conjuntos residenciales, edificios de apartamentos, proyectos de uso mixto y copropiedades comerciales. Aplica a copropietarios, administradores, revisores fiscales, miembros del consejo de administración y cualquier persona que desarrolle actividades dentro de la copropiedad.',
+      },
+      {
+        q: '¿Cuáles son las obligaciones del administrador de una copropiedad?',
+        a: 'El administrador representa legalmente a la copropiedad, ejecuta las decisiones de la asamblea y el consejo, recauda las cuotas de administración, contrata y supervisa el personal, lleva la contabilidad y responde por el manejo de los recursos. También está obligado a convocar las asambleas ordinarias y extraordinarias en los términos de la ley.',
+      },
+      {
+        q: '¿Qué pasa si un copropietario no paga las cuotas de administración?',
+        a: 'La copropiedad puede iniciar un proceso ejecutivo para el cobro de la deuda. Las cuotas de administración prestan mérito ejecutivo, lo que significa que el acta de la asamblea que las aprueba sirve como título para iniciar el cobro judicial. Adicionalmente, el reglamento puede establecer restricciones al uso de zonas comunes para quienes estén en mora.',
+      },
+      {
+        q: '¿Con qué frecuencia debe reunirse la asamblea de copropietarios?',
+        a: 'La asamblea ordinaria debe reunirse al menos una vez al año, dentro de los tres primeros meses del año, para aprobar el presupuesto, el informe de gestión y los estados financieros. Las asambleas extraordinarias se convocan cuando las necesidades de la copropiedad lo requieran, y pueden ser convocadas por el administrador, el consejo o un número de copropietarios que represente al menos el 20% de los coeficientes.',
+      },
+    ],
+  },
+  {
+    title: 'Recibo de Zonas Comunes',
+    faqs: [
+      {
+        q: '¿Qué es el recibo de zonas comunes al constructor?',
+        a: 'Es el proceso mediante el cual la copropiedad verifica, documenta y formaliza la entrega de las zonas comunes por parte del constructor. Incluye la revisión técnica del estado real de las zonas comunes frente a lo prometido en la promesa de compraventa, los planos aprobados y las especificaciones técnicas, así como la gestión jurídica para exigir el cumplimiento de las obligaciones pendientes.',
+      },
+      {
+        q: '¿Por qué es importante hacer una auditoría antes de firmar el acta de entrega?',
+        a: 'Una vez firmada el acta de entrega sin salvedades técnicas y jurídicas, la capacidad de reclamar al constructor disminuye significativamente. Las garantías legales tienen plazos definidos y, en muchos casos, el constructor puede argumentar que la copropiedad aceptó las condiciones tal como estaban. Documentar los hallazgos antes de la firma es la única forma de preservar el derecho a exigir correcciones o compensaciones.',
+      },
+      {
+        q: '¿Qué aspectos se evalúan en la auditoría técnica?',
+        a: 'Se evalúan todas las zonas comunes del proyecto: redes eléctricas, sistemas hidráulicos y sanitarios, estructura, acabados, impermeabilización, equipos comunes (ascensores, bombas, plantas eléctricas), áreas verdes, parqueaderos, vías internas y cualquier espacio de uso común. La evaluación se contrasta con los planos aprobados y las especificaciones pactadas en la promesa de compraventa.',
+      },
+      {
+        q: '¿Qué pasa si ya firmamos el acta de entrega?',
+        a: 'Aún existen mecanismos de reclamación, aunque el proceso es más complejo. Dependiendo del tiempo transcurrido y del tipo de deficiencia, pueden aplicar garantías legales de construcción, acciones de responsabilidad civil o procesos conciliatorios. Le recomendamos contactarnos para evaluar las opciones disponibles en su caso específico.',
+      },
+      {
+        q: '¿El servicio aplica para copropiedades ya constituidas o solo para proyectos nuevos?',
+        a: 'Principalmente aplica a proyectos en etapa de entrega por parte del constructor, que es cuando el servicio tiene mayor impacto. Sin embargo, también asesoramos copropiedades ya constituidas que detectan deficiencias constructivas y desean evaluar si aún tienen acciones legales vigentes frente al constructor.',
+      },
+    ],
+  },
+  {
+    title: 'Servicios y proceso',
+    faqs: [
+      {
+        q: '¿Trabajan únicamente en Cali o atienden en todo el país?',
+        a: 'Atendemos a nivel nacional. Nuestra sede principal está en Cali, pero prestamos servicios en cualquier ciudad de Colombia. Para proyectos fuera de Cali, coordinamos las visitas técnicas y el acompañamiento jurídico según las necesidades del caso.',
+      },
+      {
+        q: '¿A quién están dirigidos sus servicios?',
+        a: 'Nuestros clientes son principalmente constructoras y urbanizadoras en etapa de entrega, consejos de administración y administradores de copropiedades, copropietarios que necesitan orientación jurídica, revisores fiscales y contadores del sector, y personas naturales o jurídicas que van a adquirir o ya poseen inmuebles en propiedad horizontal.',
+      },
+      {
+        q: '¿Cuánto tiempo toma una asesoría?',
+        a: 'Depende del tipo de servicio. Una consulta puntual puede resolverse en días. Un proceso de recibo de zonas comunes, desde la revisión documental hasta el acuerdo conciliatorio, puede tomar entre 6 semanas y varios meses según el tamaño del proyecto y la disposición del constructor. Al iniciar cada caso establecemos un cronograma estimado.',
+      },
+      {
+        q: '¿Ofrecen una primera consulta gratuita?',
+        a: 'Sí. La consulta inicial no tiene costo. En esa reunión evaluamos su situación, le explicamos las opciones disponibles y le presentamos una propuesta de trabajo si el caso lo requiere. Puede contactarnos por el formulario de esta página, por WhatsApp o agendando directamente en nuestro calendario.',
+      },
+      {
+        q: '¿Cómo se define el costo de los servicios?',
+        a: 'Los honorarios se establecen según la complejidad y el alcance de cada caso, y se presentan por escrito antes de iniciar cualquier trabajo. No manejamos tarifas fijas publicadas porque cada copropiedad y cada situación tienen características propias. Lo que sí garantizamos es transparencia total en la propuesta económica desde el primer momento.',
+      },
+    ],
+  },
+]
+---
+
+<Layout
+  title="Preguntas Frecuentes"
+  description="Resolvemos sus dudas sobre Propiedad Horizontal, recibo de zonas comunes, servicios jurídicos y procesos de asesoría. Grupo Sinergia Consultores, Cali, Colombia."
+>
+
+  <!-- ══════════════════════════════════════════
+       PAGE HERO
+  ══════════════════════════════════════════ -->
+  <section class="bg-brand-800 relative overflow-hidden">
+    <div class="hero-pattern absolute inset-0 pointer-events-none"></div>
+    <div class="absolute -top-20 right-0 w-96 h-96 rounded-full bg-accent-500 opacity-[0.05] blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32">
+      <p class="text-accent-500 text-xs font-semibold uppercase tracking-[0.15em] mb-4">Resolvemos sus dudas</p>
+      <h1 class="font-heading text-white text-5xl sm:text-6xl font-bold leading-tight mb-6">
+        Preguntas Frecuentes
+      </h1>
+      <div class="w-14 h-0.5 bg-accent-500 mb-6"></div>
+      <p class="text-neutral-300 text-lg max-w-xl leading-relaxed">
+        Encuentre respuestas sobre Propiedad Horizontal, nuestros servicios y cómo podemos ayudarle.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       FAQ POR CATEGORÍAS
+  ══════════════════════════════════════════ -->
+  <section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="space-y-20">
+        {categories.map(cat => (
+          <div>
+            <!-- Categoría -->
+            <div class="flex items-center gap-4 mb-8">
+              <h2 class="font-heading text-brand-900 text-2xl font-bold">{cat.title}</h2>
+              <div class="flex-1 h-px bg-neutral-200"></div>
+            </div>
+
+            <!-- Preguntas -->
+            <div class="space-y-3">
+              {cat.faqs.map(faq => (
+                <details class="group bg-white border border-neutral-200 rounded-xl overflow-hidden hover:border-brand-300 transition-colors">
+                  <summary class="flex items-start justify-between gap-4 px-6 py-5 cursor-pointer list-none">
+                    <span class="font-heading text-brand-900 font-semibold leading-snug">{faq.q}</span>
+                    <svg
+                      class="w-5 h-5 text-brand-600 shrink-0 mt-0.5 transition-transform duration-200 group-open:rotate-180"
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </summary>
+                  <div class="px-6 pb-6">
+                    <div class="w-full h-px bg-neutral-100 mb-4"></div>
+                    <p class="text-neutral-600 text-sm leading-relaxed">{faq.a}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       ¿NO ENCONTRÓ SU PREGUNTA?
+  ══════════════════════════════════════════ -->
+  <section class="py-20 bg-brand-50 border-t border-brand-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-heading text-brand-900 text-3xl font-bold mb-4">
+        ¿No encontró lo que buscaba?
+      </h2>
+      <p class="text-neutral-500 mb-8 leading-relaxed">
+        Escríbanos directamente. La consulta inicial no tiene costo y le responderemos
+        dentro de 1 día hábil.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/contacto"
+          class="px-7 py-3.5 bg-brand-800 text-white font-semibold rounded hover:bg-brand-700 transition-colors text-sm"
+        >
+          Hacer una pregunta
+        </a>
+        <a
+          href="https://wa.me/57"
+          class="px-7 py-3.5 border border-brand-300 text-brand-800 font-semibold rounded hover:bg-brand-100 transition-colors text-sm inline-flex items-center gap-2"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Preguntar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero-pattern {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 24px,
+      rgba(255, 255, 255, 0.025) 24px,
+      rgba(255, 255, 255, 0.025) 25px
+    );
+  }
+
+  details summary::-webkit-details-marker { display: none; }
+</style>
