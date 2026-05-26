@@ -1,0 +1,307 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+// Pendiente: reemplazar con el endpoint de Formspree una vez se cree la cuenta
+// https://formspree.io → crear form → copiar el endpoint aquí
+const FORM_ENDPOINT = 'https://formspree.io/f/XXXXXXXX'
+
+// Pendiente: número WhatsApp en formato internacional sin + ni espacios
+const WA_NUMBER = '57XXXXXXXXXX'
+
+const topics = [
+  'Recibo de Zonas Comunes al Constructor',
+  'Derecho Urbano',
+  'Derecho Inmobiliario',
+  'Asesoría en Propiedad Horizontal',
+  'Reglamento de Propiedad Horizontal',
+  'Responsabilidad Civil',
+  'Otro',
+]
+---
+
+<Layout
+  title="Contacto"
+  description="Contáctenos para recibir asesoría en Propiedad Horizontal. Formulario, WhatsApp y agendamiento disponibles. Grupo Sinergia Consultores, Cali, Colombia."
+>
+
+  <!-- ══════════════════════════════════════════
+       PAGE HERO
+  ══════════════════════════════════════════ -->
+  <section class="bg-brand-800 relative overflow-hidden">
+    <div class="hero-pattern absolute inset-0 pointer-events-none"></div>
+    <div class="absolute -top-20 right-0 w-96 h-96 rounded-full bg-accent-500 opacity-[0.05] blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32">
+      <p class="text-accent-500 text-xs font-semibold uppercase tracking-[0.15em] mb-4">Estamos para ayudarle</p>
+      <h1 class="font-heading text-white text-5xl sm:text-6xl font-bold leading-tight mb-6">
+        Contáctenos
+      </h1>
+      <div class="w-14 h-0.5 bg-accent-500 mb-6"></div>
+      <p class="text-neutral-300 text-lg max-w-xl leading-relaxed">
+        Cuéntenos su caso y le orientamos hacia la solución correcta.
+        La consulta inicial no tiene costo.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       FORMULARIO + INFO
+  ══════════════════════════════════════════ -->
+  <section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-5 gap-16 items-start">
+
+        <!-- Formulario (3/5) -->
+        <div class="lg:col-span-3">
+          <h2 class="font-heading text-brand-900 text-3xl font-bold mb-2">Envíenos un mensaje</h2>
+          <p class="text-neutral-500 text-sm mb-8">Le responderemos dentro de 1 día hábil.</p>
+
+          <form
+            action={FORM_ENDPOINT}
+            method="POST"
+            class="space-y-5"
+            id="contact-form"
+          >
+            <!-- Nombre + Empresa -->
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="nombre" class="block text-sm font-medium text-brand-900 mb-1.5">
+                  Nombre <span class="text-accent-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  required
+                  placeholder="Juan Pérez"
+                  class="w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition"
+                />
+              </div>
+              <div>
+                <label for="empresa" class="block text-sm font-medium text-brand-900 mb-1.5">
+                  Empresa / Copropiedad
+                </label>
+                <input
+                  type="text"
+                  id="empresa"
+                  name="empresa"
+                  placeholder="Conjunto Residencial El Prado"
+                  class="w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition"
+                />
+              </div>
+            </div>
+
+            <!-- Email + Teléfono -->
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="email" class="block text-sm font-medium text-brand-900 mb-1.5">
+                  Correo electrónico <span class="text-accent-600">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="correo@ejemplo.com"
+                  class="w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition"
+                />
+              </div>
+              <div>
+                <label for="telefono" class="block text-sm font-medium text-brand-900 mb-1.5">
+                  Teléfono / WhatsApp
+                </label>
+                <input
+                  type="tel"
+                  id="telefono"
+                  name="telefono"
+                  placeholder="+57 300 000 0000"
+                  class="w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition"
+                />
+              </div>
+            </div>
+
+            <!-- Tema -->
+            <div>
+              <label for="tema" class="block text-sm font-medium text-brand-900 mb-1.5">
+                Tema de consulta <span class="text-accent-600">*</span>
+              </label>
+              <select
+                id="tema"
+                name="tema"
+                required
+                class="w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm text-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition bg-white appearance-none"
+              >
+                <option value="" disabled selected>Seleccione un servicio…</option>
+                {topics.map(t => <option value={t}>{t}</option>)}
+              </select>
+            </div>
+
+            <!-- Mensaje -->
+            <div>
+              <label for="mensaje" class="block text-sm font-medium text-brand-900 mb-1.5">
+                Cuéntenos su caso <span class="text-accent-600">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                required
+                rows="5"
+                placeholder="Describa brevemente su situación y lo que necesita…"
+                class="w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition resize-none"
+              ></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div>
+              <button
+                type="submit"
+                class="w-full sm:w-auto px-8 py-3.5 bg-brand-800 text-white font-semibold rounded-lg hover:bg-brand-700 transition-colors text-sm"
+              >
+                Enviar mensaje
+              </button>
+              <p class="text-xs text-neutral-400 mt-3">
+                Sus datos son confidenciales y no serán compartidos con terceros.
+              </p>
+            </div>
+
+          </form>
+
+          <!-- Mensaje de éxito (hidden por defecto) -->
+          <div id="form-success" class="hidden mt-6 p-5 bg-brand-50 border border-brand-200 rounded-xl">
+            <p class="text-brand-800 font-semibold text-sm">✓ Mensaje recibido</p>
+            <p class="text-brand-700 text-sm mt-1">Le contactaremos dentro de 1 día hábil.</p>
+          </div>
+        </div>
+
+
+        <!-- Info de contacto (2/5) -->
+        <div class="lg:col-span-2 space-y-6 lg:pt-14">
+
+          <!-- WhatsApp -->
+          <div class="bg-brand-800 rounded-2xl p-7">
+            <p class="text-accent-500 text-xs font-semibold uppercase tracking-[0.15em] mb-4">Respuesta inmediata</p>
+            <p class="font-heading text-white text-xl font-semibold mb-3">Escríbanos por WhatsApp</p>
+            <p class="text-neutral-300 text-sm leading-relaxed mb-5">
+              Para consultas urgentes, nuestro equipo atiende por WhatsApp en horario hábil.
+            </p>
+            <a
+              href={`https://wa.me/${WA_NUMBER}?text=Hola%2C%20necesito%20asesor%C3%ADa%20en%20Propiedad%20Horizontal.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2.5 px-5 py-3 bg-accent-500 text-brand-900 font-semibold rounded-lg text-sm hover:bg-accent-400 transition-colors"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Abrir WhatsApp
+            </a>
+          </div>
+
+          <!-- Datos de contacto -->
+          <div class="bg-neutral-50 rounded-2xl p-7 border border-neutral-100 space-y-5">
+            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-neutral-400">Información de contacto</p>
+
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 bg-brand-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-neutral-400 mb-0.5">Correo electrónico</p>
+                <a href="mailto:sinergiaci@yahoo.com" class="text-brand-800 font-medium text-sm hover:text-brand-600 transition-colors">
+                  sinergiaci@yahoo.com
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 bg-brand-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-neutral-400 mb-0.5">Sede</p>
+                <p class="text-brand-800 font-medium text-sm">Cali, Colombia</p>
+                <p class="text-neutral-500 text-xs mt-0.5">Atención a nivel nacional</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 bg-brand-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-neutral-400 mb-0.5">Horario de atención</p>
+                <p class="text-brand-800 font-medium text-sm">Lunes a viernes</p>
+                <p class="text-neutral-500 text-xs mt-0.5">8:00 a.m. – 6:00 p.m.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       AGENDAR (CALENDLY — placeholder)
+  ══════════════════════════════════════════ -->
+  <section class="py-24 bg-brand-50 border-t border-brand-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-accent-600 text-xs font-semibold uppercase tracking-[0.15em] mb-3">Agenda en línea</p>
+      <h2 class="font-heading text-brand-900 text-4xl font-bold mb-4">Agende su consulta</h2>
+      <p class="text-neutral-500 mb-10 leading-relaxed">
+        Elija la fecha y hora que mejor le convenga. La primera consulta no tiene costo.
+      </p>
+
+      <!-- Calendly embed — reemplazar data-url con el enlace real -->
+      <div
+        class="calendly-inline-widget w-full rounded-2xl overflow-hidden border border-brand-200 shadow-sm"
+        data-url="https://calendly.com/USUARIO-PENDIENTE"
+        style="min-width:320px;height:700px;"
+      ></div>
+      <script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero-pattern {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 24px,
+      rgba(255, 255, 255, 0.025) 24px,
+      rgba(255, 255, 255, 0.025) 25px
+    );
+  }
+</style>
+
+<script>
+  // Intercepción del formulario para mostrar mensaje de éxito con Formspree
+  const form = document.getElementById('contact-form') as HTMLFormElement | null
+  const success = document.getElementById('form-success')
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const data = new FormData(form)
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { Accept: 'application/json' },
+    })
+    if (res.ok) {
+      form.reset()
+      form.classList.add('hidden')
+      success?.classList.remove('hidden')
+    }
+  })
+</script>
