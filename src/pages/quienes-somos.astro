@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const disciplines = [
+  {
+    area: 'Derecho',
+    desc: 'Abogados especializados en régimen de Propiedad Horizontal, derecho urbano e inmobiliario.',
+    icon: 'M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3',
+  },
+  {
+    area: 'Administración de Empresas',
+    desc: 'Profesionales en gestión administrativa y operativa de copropiedades a nivel nacional.',
+    icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+  },
+  {
+    area: 'Contaduría Pública',
+    desc: 'Contadores y revisores fiscales con experiencia en el sector de propiedad horizontal.',
+    icon: 'M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z',
+  },
+  {
+    area: 'Ingeniería',
+    desc: 'Ingenieros eléctricos, sanitarios y civiles para la evaluación técnica de zonas comunes.',
+    icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',
+  },
+]
+
+const values = [
+  {
+    word: 'Experiencia',
+    desc: 'Más de 25 años en el sector nos permiten anticipar y resolver situaciones que otros no detectan.',
+  },
+  {
+    word: 'Rigurosidad',
+    desc: 'Cada proceso se ejecuta con estándares técnicos y jurídicos de la más alta calidad.',
+  },
+  {
+    word: 'Cumplimiento',
+    desc: 'Entregamos lo que prometemos, en los tiempos acordados y con la profundidad requerida.',
+  },
+]
+---
+
+<Layout
+  title="Quiénes Somos"
+  description="Conoce a Grupo Sinergia Consultores — más de 25 años de experiencia en Propiedad Horizontal. Equipo interdisciplinario de Derecho, Administración, Contaduría e Ingeniería."
+>
+
+  <!-- ══════════════════════════════════════════
+       PAGE HERO
+  ══════════════════════════════════════════ -->
+  <section class="bg-brand-800 relative overflow-hidden">
+    <div class="hero-pattern absolute inset-0 pointer-events-none"></div>
+    <div class="absolute -top-20 right-0 w-96 h-96 rounded-full bg-accent-500 opacity-[0.05] blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <p class="text-accent-500 text-xs font-semibold uppercase tracking-[0.15em] mb-4">La firma</p>
+      <h1 class="font-heading text-white text-5xl sm:text-6xl font-bold leading-tight mb-6">
+        Quiénes Somos
+      </h1>
+      <div class="w-14 h-0.5 bg-accent-500"></div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       HISTORIA
+  ══════════════════════════════════════════ -->
+  <section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-5 gap-16 items-start">
+
+        <!-- Left: texto principal (3/5) -->
+        <div class="lg:col-span-3">
+          <p class="text-accent-600 text-xs font-semibold uppercase tracking-[0.15em] mb-3">Nuestra historia</p>
+          <h2 class="font-heading text-brand-900 text-4xl font-bold mb-6 leading-tight">
+            Más de 25 años<br />al servicio de las<br />copropiedades
+          </h2>
+          <div class="w-14 h-0.5 bg-accent-500 mb-8"></div>
+
+          <div class="space-y-5 text-neutral-600 leading-relaxed">
+            <p>
+              GRUPO SINERGIA CONSULTORES S.A.S. es el producto de más de veinticinco años de experiencia,
+              creada pensando en las necesidades propias del régimen de Propiedad Horizontal en los
+              aspectos Administrativos, Jurídicos y Técnicos de las copropiedades.
+            </p>
+            <p>
+              Brindamos servicios de asesoría, acompañamiento y administración de bienes sometidos al
+              régimen de Propiedad Horizontal, así como consultoría sobre el particular a Miembros de
+              Consejos de Administración, copropietarios, Administradores, Contadores, Revisores
+              Fiscales y en general a las personas interesadas en conocer esta forma especial de dominio.
+            </p>
+            <p>
+              Hemos conformado un grupo profesional interdisciplinario en las áreas de Administración
+              de Empresas, Derecho, Contaduría Pública e Ingeniería eléctrica, sanitaria y civil, para
+              adelantar con plena idoneidad el proceso de evaluación del estado de construcción de las
+              zonas comunes de las copropiedades.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: ficha de la firma (2/5) -->
+        <div class="lg:col-span-2 space-y-4 pt-1">
+          {[
+            { label: 'Razón social',  value: 'Grupo Sinergia Consultores S.A.S.' },
+            { label: 'NIT',           value: '901426445-1' },
+            { label: 'Fundación',     value: '2011' },
+            { label: 'Sede',          value: 'Cali, Colombia' },
+            { label: 'Cobertura',     value: 'Nacional' },
+          ].map(item => (
+            <div class="flex flex-col gap-0.5 border-b border-neutral-100 pb-4">
+              <span class="text-xs text-neutral-400 uppercase tracking-wider">{item.label}</span>
+              <span class="text-brand-900 font-semibold">{item.value}</span>
+            </div>
+          ))}
+
+          <div class="bg-brand-50 rounded-xl p-6 mt-6 border border-brand-100">
+            <p class="text-brand-800 text-sm leading-relaxed font-medium">
+              "Equipo interdisciplinario con especialista dedicado para cada área del proceso."
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       EQUIPO INTERDISCIPLINARIO
+  ══════════════════════════════════════════ -->
+  <section class="py-24 bg-brand-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-14">
+        <p class="text-accent-600 text-xs font-semibold uppercase tracking-[0.15em] mb-3">Nuestro equipo</p>
+        <h2 class="font-heading text-brand-900 text-4xl font-bold mb-4">Equipo Interdisciplinario</h2>
+        <p class="text-neutral-500 max-w-xl mx-auto text-sm leading-relaxed">
+          Cada profesional aporta su especialidad a un proceso unificado — así garantizamos
+          una evaluación completa sin vacíos técnicos ni jurídicos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {disciplines.map((d, i) => (
+          <div class="bg-white rounded-xl p-7 text-center shadow-sm border border-neutral-100 flex flex-col items-center">
+            <div class="w-16 h-16 bg-brand-800 rounded-2xl flex items-center justify-center mb-5">
+              <svg class="w-8 h-8 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={d.icon} />
+              </svg>
+            </div>
+            <h3 class="font-heading text-brand-900 text-base font-semibold mb-3 leading-snug">{d.area}</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed">{d.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       VALORES
+  ══════════════════════════════════════════ -->
+  <section class="py-24 bg-brand-800 relative overflow-hidden">
+    <div class="hero-pattern absolute inset-0 pointer-events-none"></div>
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-accent-500 opacity-[0.04] blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-14">
+        <p class="text-accent-500 text-xs font-semibold uppercase tracking-[0.15em] mb-3">Lo que nos define</p>
+        <h2 class="font-heading text-white text-4xl font-bold">Nuestros Valores</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-600 rounded-xl overflow-hidden">
+        {values.map((v, i) => (
+          <div class="bg-brand-800 p-10 flex flex-col">
+            <span class="font-heading text-accent-500/30 text-7xl font-bold leading-none mb-6 select-none">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <h3 class="font-heading text-white text-2xl font-semibold mb-4">{v.word}</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       CTA
+  ══════════════════════════════════════════ -->
+  <section class="py-20 bg-white border-t border-neutral-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-heading text-brand-900 text-3xl font-bold mb-4">
+        ¿Listo para trabajar con nosotros?
+      </h2>
+      <p class="text-neutral-500 mb-8">
+        Cuéntenos su caso y le asignaremos el especialista más adecuado.
+      </p>
+      <a
+        href="/contacto"
+        class="inline-block px-8 py-4 bg-brand-800 text-white font-semibold rounded hover:bg-brand-700 transition-colors"
+      >
+        Contáctenos
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero-pattern {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 24px,
+      rgba(255, 255, 255, 0.025) 24px,
+      rgba(255, 255, 255, 0.025) 25px
+    );
+  }
+</style>
