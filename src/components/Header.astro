@@ -10,20 +10,23 @@ const navLinks = [
 const currentPath = Astro.url.pathname
 ---
 
-<header class="bg-brand-800 shadow-md sticky top-0 z-50">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<header class="bg-brand-800 shadow-md sticky top-0 z-50 relative overflow-hidden">
+
+  <!-- Difuminado blanco → azul en el extremo izquierdo -->
+  <div class="absolute left-0 top-0 bottom-0 w-72 pointer-events-none"
+       style="background: linear-gradient(to right, white 0%, white 45%, transparent 100%);">
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
 
-      <!-- Logo / Wordmark -->
-      <a href="/" class="flex items-center gap-3 group">
-        <div class="flex flex-col leading-tight">
-          <span class="text-white font-heading font-bold text-lg tracking-wide group-hover:text-accent-500 transition-colors">
-            Grupo Sinergia
-          </span>
-          <span class="text-neutral-300 text-xs tracking-widest uppercase">
-            Consultores
-          </span>
-        </div>
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img
+          src="/logoGrupoSinergia.svg"
+          alt="Grupo Sinergia Consultores"
+          style="height: 72px; width: auto;"
+        />
       </a>
 
       <!-- Desktop nav -->
