@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import coberturaImg from '../assets/cobertura-nacional.jpg'
 
 const disciplines = [
   {
@@ -129,10 +131,14 @@ const values = [
 
   <!-- COBERTURA NACIONAL -->
   <section class="relative overflow-hidden" style="height: 420px;">
-    <img
-      src="/cobertura/image.jpg"
+    <Image
+      src={coberturaImg}
       alt="Ciudad colombiana con edificios y copropiedades"
-      style="width: 100%; height: 100%; object-fit: cover; display: block;"
+      widths={[768, 1280, 1920, 2400]}
+      sizes="100vw"
+      format="webp"
+      quality={72}
+      class="block w-full h-full object-cover"
     />
     <div class="absolute inset-0 bg-brand-900/70"></div>
     <div class="absolute inset-0 flex items-center">

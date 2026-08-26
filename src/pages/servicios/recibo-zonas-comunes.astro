@@ -1,5 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import galeria1 from '../../assets/galeria-1.jpg'
+import galeria2 from '../../assets/galeria-2.jpg'
+import galeria3 from '../../assets/galeria-3.jpg'
 
 const steps = [
   {
@@ -211,24 +215,36 @@ const faqs = [
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
         <div class="rounded-xl overflow-hidden shadow-sm" style="height: 320px;">
-          <img
-            src="/galeria1/image.jpg"
+          <Image
+            src={galeria1}
             alt="Ingenieros verificando medidas en zona común durante la inspección técnica"
-            style="width: 100%; height: 100%; object-fit: cover; display: block;"
+            widths={[400, 800, 1200]}
+            sizes="(min-width: 640px) 33vw, 100vw"
+            format="webp"
+            quality={75}
+            class="block w-full h-full object-cover"
           />
         </div>
         <div class="rounded-xl overflow-hidden shadow-sm" style="height: 320px;">
-          <img
-            src="/galeria2/image.jpg"
+          <Image
+            src={galeria2}
             alt="Equipo técnico revisando el estado de la obra en una copropiedad"
-            style="width: 100%; height: 100%; object-fit: cover; display: block;"
+            widths={[400, 800, 1200]}
+            sizes="(min-width: 640px) 33vw, 100vw"
+            format="webp"
+            quality={75}
+            class="block w-full h-full object-cover"
           />
         </div>
         <div class="rounded-xl overflow-hidden shadow-sm" style="height: 320px;">
-          <img
-            src="/galeria3/image.jpg"
+          <Image
+            src={galeria3}
             alt="Inspección técnica de estructura y acabados en zonas comunes"
-            style="width: 100%; height: 100%; object-fit: cover; display: block;"
+            widths={[400, 800, 1200]}
+            sizes="(min-width: 640px) 33vw, 100vw"
+            format="webp"
+            quality={75}
+            class="block w-full h-full object-cover"
           />
         </div>
       </div>
